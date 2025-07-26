@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case study on building a personal author and portfolio website with SEO optimization, technical setup, and project management.">
+    <meta name="keywords" content="author website, portfolio, SEO optimization, website development, case study">
+    <meta name="author" content="Divyansh Maghanani">
+    <meta property="og:title" content="Personal Author Website Case Study - Divyansh Maghanani">
+    <meta property="og:description" content="How I built and optimized my personal author website to showcase books, certifications, and projects while learning SEO fundamentals.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Personal Author Website Case Study - Divyansh Maghanani">
+    <meta name="twitter:description" content="How I built and optimized my personal author website to showcase books, certifications, and projects while learning SEO fundamentals.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourwebsite.com/case-study">
+    <title>Personal Author Website Case Study - Divyansh Maghanani</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --background: #FAFAFA;
+            --gold: #D4AF37;
+            --gold-light: #E5C76B;
+            --blue: #A3C7E6;
+            --blue-light: #C5DCEF;
+            --text: #333333;
+            --navy: #0A2540;
+            --navy-light: #1A3550;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 80px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 40%);
+            z-index: 1;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -8px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.8s ease;
+            border-radius: 3px;
+        }
+        
+        .section-title.animated::after {
+            animation: expandLine 1.5s forwards;
+        }
+        
+        @keyframes expandLine {
+            to { width: 80%; }
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+        }
+        
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(163, 199, 230, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .icon-circle i {
+            color: var(--blue);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover .icon-circle {
+            background-color: rgba(163, 199, 230, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .card:hover .icon-circle i {
+            color: var(--navy);
+            transform: scale(1.1);
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 3rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), var(--blue));
+            border-radius: 4px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: 50%;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: 50%;
+            text-align: left;
+        }
+        
+        .timeline-content {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 2rem;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 2rem;
+        }
+        
+        .timeline-number {
+            position: absolute;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--navy);
+            border: 3px solid var(--gold);
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-number {
+            right: calc(50% - 20px);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-number {
+            left: calc(50% - 20px);
+        }
+        
+        .timeline-item:hover .timeline-number {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+        
+        .challenge-card {
+            background-color: rgba(163, 199, 230, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--blue);
+            transition: all 0.3s ease;
+        }
+        
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            background-color: rgba(163, 199, 230, 0.15);
+        }
+        
+        .challenge-icon {
+            color: var(--blue);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .challenge-card:hover .challenge-icon {
+            transform: scale(1.2);
+            color: var(--navy);
+        }
+        
+        .btn {
+            background-color: var(--navy);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(10, 37, 64, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(10, 37, 64, 0.4);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .goal-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .goal-icon {
+            color: var(--gold);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .goal-item:hover .goal-icon {
+            transform: scale(1.2);
+        }
+        
+        .image-container {
+            width: 100%;
+            height: 300px;
+            background-color: rgba(163, 199, 230, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.03);
+        }
+        
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.05) 0%, transparent 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .result-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .result-icon {
+            color: var(--gold);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .footer {
+            background: linear-gradient(to right, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 2rem 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        .final-image-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .final-image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .final-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .final-image-container:hover img {
+            transform: scale(1.02);
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background-color: var(--gold-light);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(10px, -10px) rotate(5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .highlight-text {
+            color: var(--navy);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .highlight-text::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--gold-light);
+            opacity: 0.3;
+            border-radius: 4px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 80px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-number,
+            .timeline-item:nth-child(even) .timeline-number {
+                left: 10px;
+                right: auto;
+            }
+            
+            .final-image-container {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floating-elements"></div>
+    
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">Personal Author Website</h1>
+                <p class="text-xl text-white opacity-90 max-w-2xl mx-auto">A case study on building and optimizing my online presence</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Project Overview Section -->
+    <section class="py-16">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title text-3xl">Project Overview</h2>
+                <div class="mt-8">
+                    <p class="text-lg">
+                        I built a personal author and portfolio website to showcase my books, certifications, and projects. The main focus was to strengthen my online presence, ensure the site was optimized for search engines, and improve my technical understanding of websites.
+                    </p>
+                    <div class="image-container mt-8 pulse-animation">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23A3C7E6' fill-opacity='0.2'/%3E%3Ctext x='400' y='200' font-family='Arial' font-size='24' fill='%230A2540' text-anchor='middle' dominant-baseline='middle'%3EWebsite Overview%3C/text%3E%3C/svg%3E" alt="Overview of the personal author website project" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Goals & Objectives Section -->
+    <section class="py-16 bg-white">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title text-3xl">Goals & Objectives</h2>
+                <div class="mt-8">
+                    <div class="goal-item">
+                        <i class="fas fa-check-circle goal-icon"></i>
+                        <p>Build a professional online hub for my work.</p>
+                    </div>
+                    <div class="goal-item">
+                        <i class="fas fa-check-circle goal-icon"></i>
+                        <p>Learn and apply SEO fundamentals (indexing, meta tags, site structure).</p>
+                    </div>
+                    <div class="goal-item">
+                        <i class="fas fa-check-circle goal-icon"></i>
+                        <p>Ensure fast performance, mobile responsiveness, and correct technical setup.</p>
+                    </div>
+                    <div class="goal-item">
+                        <i class="fas fa-check-circle goal-icon"></i>
+                        <p>Gain basic coding knowledge while managing the project end-to-end.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- My Role Section -->
+    <section class="py-16">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title text-3xl">My Role</h2>
+                <div class="mt-8 flex items-start">
+                    <div class="icon-circle mr-6">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <p class="text-lg mb-3">
+                            Planned the website's structure and design.
+                        </p>
+                        <p class="text-lg mb-3">
+                            Used AI-generated code (HTML/CSS) and edited it to customize sections.
+                        </p>
+                        <p class="text-lg mb-3">
+                            Focused heavily on SEO setup: meta descriptions, robots tag, URL structure, Google Search Console.
+                        </p>
+                        <p class="text-lg">
+                            Improved technical performance (error fixing, indexing, responsiveness).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Process Section -->
+    <section class="py-16 bg-white">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title text-3xl">Process</h2>
+                <div class="timeline mt-12">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-number">1</div>
+                        <div class="timeline-content">
+                            <h3 class="text-xl font-semibold mb-2" style="color: var(--navy);">Planning</h3>
+                            <p>Created the sitemap (About, Books, Portfolio, Certifications, Contact).</p>
+                            <div class="image-container mt-4" style="height: 180px;">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='180' viewBox='0 0 400 180'%3E%3Crect width='400' height='180' fill='%23A3C7E6' fill-opacity='0.2'/%3E%3Ctext x='200' y='90' font-family='Arial' font-size='16' fill='%230A2540' text-anchor='middle' dominant-baseline='middle'%3ESitemap Planning%3C/text%3E%3C/svg%3E" alt="Sitemap planning diagram showing website structure" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-number">2</div>
+                        <div class="timeline-content">
+                            <h3 class="text-xl font-semibold mb-2" style="color: var(--navy);">Development Support</h3>
+                            <p>Generated the initial code using AI tools, then edited and customized the content.</p>
+                            <div class="image-container mt-4" style="height: 180px;">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='180' viewBox='0 0 400 180'%3E%3Crect width='400' height='180' fill='%23A3C7E6' fill-opacity='0.2'/%3E%3Ctext x='200' y='90' font-family='Arial' font-size='16' fill='%230A2540' text-anchor='middle' dominant-baseline='middle'%3ECode Customization%3C/text%3E%3C/svg%3E" alt="Screenshot of code editing process" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-number">3</div>
+                        <div class="timeline-content">
+                            <h3 class="text-xl font-semibold mb-2" style="color: var(--navy);">Technical Optimization</h3>
+                            <p>Fixed duplicate tags, added robots tag, ensured mobile-friendliness.</p>
+                            <div class="image-container mt-4" style="height: 180px;">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='180' viewBox='0 0 400 180'%3E%3Crect width='400' height='180' fill='%23A3C7E6' fill-opacity='0.2'/%3E%3Ctext x='200' y='90' font-family='Arial' font-size='16' fill='%230A2540' text-anchor='middle' dominant-baseline='middle'%3ETechnical Optimization%3C/text%3E%3C/svg%3E" alt="Technical optimization process showing code fixes" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 4 -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-number">4</div>
+                        <div class="timeline-content">
+                            <h3 class="text-xl font-semibold mb-2" style="color: var(--navy);">SEO Setup</h3>
+                            <p>Wrote optimized meta descriptions, used proper header tags, and set up indexing in Google Search Console.</p>
+                            <div class="image-container mt-4" style="height: 180px;">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='180' viewBox='0 0 400 180'%3E%3Crect width='400' height='180' fill='%23A3C7E6' fill-opacity='0.2'/%3E%3Ctext x='200' y='90' font-family='Arial' font-size='16' fill='%230A2540' text-anchor='middle' dominant-baseline='middle'%3ESEO Setup in Google Search Console%3C/text%3E%3C/svg%3E" alt="Google Search Console setup for SEO optimization" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 5 -->
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-number">5</div>
+                        <div class="timeline-content">
+                            <h3 class="text-xl font-semibold mb-2" style="color: var(--navy);">Launch & Testing</h3>
+                            <p>Went live on GitHub Pages and verified that all pages were indexed and working correctly.</p>
+                            <div class="image-container mt-4" style="height: 180px;">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='180' viewBox='0 0 400 180'%3E%3Crect width='400' height='180' fill='%23A3C7E6' fill-opacity='0.2'/%3E%3Ctext x='200' y='90' font-family='Arial' font-size='16' fill='%230A2540' text-anchor='middle' dominant-baseline='middle'%3EWebsite Launch and Testing%3C/text%3E%3C/svg%3E" alt="Website launch and testing process" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Challenges & Solutions Section -->
+    <section class="py-16">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title text-3xl">Challenges & How I Solved Them</h2>
+                <div class="mt-8">
+                    <div class="challenge-card fade-in">
+                        <div class="flex items-start">
+                            <i class="fas fa-exclamation-triangle challenge-icon"></i>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2" style="color: var(--navy);">Pages Not Appearing in Google Search</h3>
+                                <p><strong>Challenge:</strong> Some pages were not appearing in Google search.</p>
+                                <p class="mt-2"><strong>Solution:</strong> Used Google Search Console's URL inspection, submitted sitemap, and fixed crawlability issues.</p>
+                                <div class="image-container mt-4" style="height: 180px;">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='180' viewBox='0 0 400 180'%3E%3Crect width='400' height='180' fill='%23A3C7E6' fill-opacity='0.2'/%3E%3Ctext x='200' y='90' font-family='Arial' font-size='16' fill='%230A2540' text-anchor='middle' dominant-baseline='middle'%3EGoogle Search Console URL Inspection%3C/text%3E%3C/svg%3E" alt="Google Search Console URL inspection showing fixed crawlability issues" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="challenge-card fade-in">
+                        <div class="flex items-start">
+                            <i class="fas fa-code challenge-icon"></i>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2" style="color: var(--navy);">Code Structure Issues</h3>
+                                <p><strong>Challenge:</strong> Duplicate &lt;head&gt; and &lt;body&gt; tags in AI-generated code.</p>
+                                <p class="mt-2"><strong>Solution:</strong> Learned how to merge them correctly without breaking the layout.</p>
+                                <div class="image-container mt-4" style="height: 180px;">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='180' viewBox='0 0 400 180'%3E%3Crect width='400' height='180' fill='%23A3C7E6' fill-opacity='0.2'/%3E%3Ctext x='200' y='90' font-family='Arial' font-size='16' fill='%230A2540' text-anchor='middle' dominant-baseline='middle'%3ECode Structure Fixes%3C/text%3E%3C/svg%3E" alt="Code editor showing HTML structure fixes" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Results & Key Takeaways Section -->
+    <section class="py-16 bg-white">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title text-3xl">Results & Key Takeaways</h2>
+                <div class="mt-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="result-item">
+                                <i class="fas fa-check-circle result-icon"></i>
+                                <p>Successfully launched a responsive, SEO-optimized personal website.</p>
+                            </div>
+                            <div class="result-item">
+                                <i class="fas fa-check-circle result-icon"></i>
+                                <p>All pages indexed in Google.</p>
+                            </div>
+                            <div class="result-item">
+                                <i class="fas fa-check-circle result-icon"></i>
+                                <p>Improved knowledge of SEO and basic coding edits.</p>
+                            </div>
+                            <div class="result-item">
+                                <i class="fas fa-check-circle result-icon"></i>
+                                <p>Website now serves as the central hub for my books, portfolio, and certifications.</p>
+                            </div>
+                        </div>
+                        <div class="image-container" style="height: 100%;">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23A3C7E6' fill-opacity='0.2'/%3E%3Ctext x='200' y='150' font-family='Arial' font-size='16' fill='%230A2540' text-anchor='middle' dominant-baseline='middle'%3ESearch Results Analytics%3C/text%3E%3C/svg%3E" alt="Analytics showing successful website indexing and search results" />
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold mt-10 mb-4" style="color: var(--navy);">Key Learnings</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="card p-6 fade-in">
+                            <div class="icon-circle mx-auto">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-center mb-2" style="color: var(--navy);">SEO Fundamentals</h4>
+                            <p class="text-center">Understanding how search engines index content and the importance of proper meta tags.</p>
+                        </div>
+                        
+                        <div class="card p-6 fade-in">
+                            <div class="icon-circle mx-auto">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-center mb-2" style="color: var(--navy);">Code Customization</h4>
+                            <p class="text-center">Learning to edit and customize AI-generated code to meet specific requirements.</p>
+                        </div>
+                        
+                        <div class="card p-6 fade-in">
+                            <div class="icon-circle mx-auto">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-center mb-2" style="color: var(--navy);">Responsive Design</h4>
+                            <p class="text-center">Ensuring the website looks and functions well across all device sizes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final Visual & CTA Section -->
+    <section class="py-16">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title text-3xl">Final Result</h2>
+                <div class="mt-8">
+                    <div class="final-image-container">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='600' viewBox='0 0 1000 600'%3E%3Crect width='1000' height='600' fill='%23A3C7E6' fill-opacity='0.2'/%3E%3Ctext x='500' y='300' font-family='Arial' font-size='24' fill='%230A2540' text-anchor='middle' dominant-baseline='middle'%3EFinal Website Screenshot%3C/text%3E%3C/svg%3E" alt="Final screenshot of the personal author website showing responsive design on desktop and mobile" />
+                    </div>
+                    <div class="text-center mt-10">
+                        <a href="#" class="btn">
+                            <span>View Live Project</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <p class="text-xl font-semibold mb-4">Divyansh Maghanani</p>
+                <div class="flex justify-center space-x-4 mb-4">
+                    <a href="mailto:divyanshmaghnani5@email.com" class="text-white hover:text-gold transition-colors" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/divyansh-maghanani" target="_blank" class="text-white hover:text-gold transition-colors" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://instagram.com/divyansh_3116" target="_blank" class="text-white hover:text-gold transition-colors" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                <p class="text-sm opacity-70">© 2025 Divyansh Maghanani. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating elements
+        function createFloatingElements() {
+            const container = document.getElementById('floating-elements');
+            const elementCount = 15;
+            
+            for (let i = 0; i < elementCount; i++) {
+                const element = document.createElement('div');
+                element.classList.add('floating-element');
+                
+                // Random size
+                const size = Math.random() * 50 + 10;
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                element.style.left = `${posX}%`;
+                element.style.top = `${posY}%`;
+                
+                // Animation
+                const duration = Math.random() * 10 + 5;
+                const delay = Math.random() * 5;
+                element.style.animation = `float ${duration}s ease-in-out infinite ${delay}s`;
+                
+                container.appendChild(element);
+            }
+        }
+        
+        // Intersection Observer for fade-in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const sectionTitles = document.querySelectorAll('.section-title');
+            
+            // Add animated class to all section titles
+            sectionTitles.forEach(title => {
+                title.classList.add('animated');
+            });
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            createFloatingElements();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96547ec804104085',t:'MTc1MzUzOTE4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
