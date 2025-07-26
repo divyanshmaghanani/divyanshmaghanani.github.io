@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with Divyansh Maghanani. Connect via email, WhatsApp, LinkedIn or Instagram for collaboration opportunities.">
+    <meta name="keywords" content="Divyansh Maghanani, contact, portfolio, email, WhatsApp, LinkedIn, Instagram">
+    <meta name="author" content="Divyansh Maghanani">
+    <meta property="og:title" content="Contact Divyansh Maghanani">
+    <meta property="og:description" content="Connect with Divyansh Maghanani for collaboration opportunities and professional inquiries.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Divyansh Maghanani">
+    <meta name="twitter:description" content="Connect with Divyansh Maghanani for collaboration opportunities and professional inquiries.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://divyanshmaghanani.github.io/contact.html">
+    <title>Contact Me - Divyansh Maghanani</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --navy: #0a192f;
+            --navy-light: #112240;
+            --gold: #e6b31e;
+            --gold-light: #f1c75b;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--navy);
+            color: var(--dark-gray);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .a4-page {
+            width: 210mm;
+            max-width: 100%;
+            height: auto;
+            min-height: 297mm;
+            background-color: white;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            position: relative;
+            border-radius: 12px;
+        }
+        
+        .header-accent {
+            height: 120px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-accent::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(230, 179, 30, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(230, 179, 30, 0.1) 0%, transparent 40%);
+            z-index: 1;
+        }
+        
+        .header-accent::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6b31e' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        .profile-container {
+            position: relative;
+            margin-top: -60px;
+            z-index: 10;
+        }
+        
+        .profile-image-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid white;
+            background-color: var(--navy-light);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--gold);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+            opacity: 0;
+            z-index: 1;
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); }
+            50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.8); }
+        }
+        
+        .line-expand {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .line-expand::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -8px;
+            left: 50%;
+            background-color: var(--gold);
+            transform: translateX(-50%);
+            transition: width 0.8s ease;
+            animation: expandLine 1.5s forwards 0.5s;
+            border-radius: 3px;
+        }
+        
+        @keyframes expandLine {
+            to { width: 80%; }
+        }
+        
+        .contact-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--gold-light) 0%, transparent 100%);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-card:hover::before {
+            opacity: 0.05;
+        }
+        
+        .contact-icon {
+            color: var(--gold);
+            font-size: 1.8rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(241, 199, 91, 0.1);
+            margin: 0 auto 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card:hover .contact-icon {
+            background-color: rgba(241, 199, 91, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .contact-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-icon::after {
+            opacity: 0.2;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.2; }
+            50% { transform: scale(1.2); opacity: 0.3; }
+            100% { transform: scale(0.8); opacity: 0.2; }
+        }
+        
+        .contact-link {
+            color: var(--navy);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 500;
+            display: inline-block;
+            word-break: break-word;
+        }
+        
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-link::after {
+            width: 100%;
+        }
+        
+        .footer {
+            background: linear-gradient(to right, var(--navy) 0%, var(--navy-light) 100%);
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        
+        .footer-underline {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .footer-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--gold);
+            animation: expandLineFooter 1.5s forwards 1.5s;
+        }
+        
+        @keyframes expandLineFooter {
+            to { width: 100%; }
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--gold);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1.0s; }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: var(--gold-light);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        
+        @media (max-width: 768px) {
+            .a4-page {
+                width: 100%;
+                min-height: auto;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-accent {
+                height: 100px;
+            }
+            
+            .profile-image-container {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .profile-image {
+                font-size: 2.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem !important;
+            }
+            
+            .contact-link {
+                font-size: 0.9rem;
+                word-break: break-word;
+            }
+        }
+        
+        .btn-cta {
+            background-color: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(230, 179, 30, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(230, 179, 30, 0.4);
+        }
+        
+        .btn-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+            z-index: -1;
+        }
+        
+        .btn-cta:hover::before {
+            left: 100%;
+        }
+        
+        .skills-section {
+            background: linear-gradient(to right, rgba(17, 34, 64, 0.05), rgba(10, 25, 47, 0.02));
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skills-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--gold-light), transparent);
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background-color: rgba(230, 179, 30, 0.1);
+            color: var(--navy);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--gold-light);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="a4-page">
+        <!-- Particles Background -->
+        <div class="particles" id="particles"></div>
+        
+        <!-- Top accent -->
+        <div class="header-accent"></div>
+        
+        <!-- Profile Image -->
+        <div class="profile-container">
+            <div class="profile-image-container">
+                <div class="profile-glow"></div>
+                <div class="profile-image floating">
+                    <img src="YOUR_PROFILE_IMAGE_URL_HERE" alt="Divyansh Maghanani" id="profile-img">
+                    <!-- Fallback icon if image fails to load -->
+                    <i class="fas fa-user" id="fallback-icon" style="display: none;"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div class="px-8 py-6 md:px-12 md:py-10">
+            <h1 class="text-4xl font-bold text-center mt-4 mb-2" style="color: var(--gold);">
+                <span class="line-expand">Contact Me</span>
+            </h1>
+            
+            <p class="text-center mb-10 mt-6 text-lg fade-in delay-1" style="color: var(--dark-gray);">
+                Let's connect and create something amazing together!
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto contact-grid">
+                <!-- Email Card -->
+                <div class="contact-card p-6 fade-in delay-2">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-center mb-2">Email</h3>
+                    <div class="text-center">
+                        <a href="mailto:divyanshmaghnani5@email.com" class="contact-link">
+                            divyanshmaghnani5@email.com
+                        </a>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <a href="mailto:divyanshmaghnani5@email.com" class="btn-cta inline-block">
+                            <i class="fas fa-paper-plane mr-2"></i> Send Email
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- WhatsApp Card -->
+                <div class="contact-card p-6 fade-in delay-3">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-center mb-2">WhatsApp</h3>
+                    <div class="text-center">
+                        <a href="https://wa.me/919351093952" target="_blank" class="contact-link">
+                            +91-9351093952
+                        </a>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <a href="https://wa.me/919351093952" target="_blank" class="btn-cta inline-block">
+                            <i class="fab fa-whatsapp mr-2"></i> Chat Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- LinkedIn Card -->
+                <div class="contact-card p-6 fade-in delay-4">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-center mb-2">LinkedIn</h3>
+                    <div class="text-center">
+                        <a href="https://linkedin.com/in/divyansh-maghanani" target="_blank" class="contact-link">
+                            linkedin.com/in/divyansh-maghanani
+                        </a>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <a href="https://linkedin.com/in/divyansh-maghanani" target="_blank" class="btn-cta inline-block">
+                            <i class="fab fa-linkedin-in mr-2"></i> Connect
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Instagram Card -->
+                <div class="contact-card p-6 fade-in delay-5">
+                    <div class="contact-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3 class="font-semibold text-xl text-center mb-2">Instagram</h3>
+                    <div class="text-center">
+                        <a href="https://instagram.com/divyansh_3116" target="_blank" class="contact-link">
+                            instagram.com/divyansh_3116
+                        </a>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <a href="https://instagram.com/divyansh_3116" target="_blank" class="btn-cta inline-block">
+                            <i class="fab fa-instagram mr-2"></i> Follow
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills Section (replacing the Let's Work Together block) -->
+            <div class="skills-section fade-in delay-5">
+                <h3 class="text-xl font-semibold text-center mb-4" style="color: var(--navy);">My Expertise</h3>
+                <div class="text-center">
+                    <span class="skill-tag">Canva</span>
+                    <span class="skill-tag">Excel</span>
+                    <span class="skill-tag">Digital Marketing</span>
+                    <span class="skill-tag">Content Creation</span>
+                    <span class="skill-tag">Social Media</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer mt-8">
+            <p class="text-center text-white">
+                <span class="footer-underline">Divyansh Maghanani</span>
+            </p>
+            <div class="social-icons">
+                <a href="mailto:divyanshmaghnani5@email.com" class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/919351093952" target="_blank" class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://linkedin.com/in/divyansh-maghanani" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://instagram.com/divyansh_3116" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p class="text-center text-white text-sm mt-4 opacity-70">
+                © 2025 Divyansh Maghanani. All rights reserved.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                
+                // Random size
+                const size = Math.random() * 5 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.3 + 0.1;
+                
+                // Animation
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `floating ${duration}s ease-in-out infinite`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Handle image error
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileImg = document.getElementById('profile-img');
+            const fallbackIcon = document.getElementById('fallback-icon');
+            
+            profileImg.onerror = function() {
+                profileImg.style.display = 'none';
+                fallbackIcon.style.display = 'block';
+            };
+            
+            createParticles();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9654563224d83d24',t:'MTc1MzUzNzUxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
