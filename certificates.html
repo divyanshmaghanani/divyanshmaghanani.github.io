@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Certifications & Leadership Activities | Digital Skills Portfolio</title>
+    <meta name="description" content="Showcase of professional Coursera certifications in Excel, SEO, Google Ads, and HubSpot CRM, plus leadership experience as Pixels Club Coordinator and Student Council President.">
+    <meta name="keywords" content="certifications, coursera, excel, seo, google ads, hubspot, leadership, extracurricular activities">
+    <meta name="author" content="Portfolio Owner">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Professional Certifications & Leadership Activities">
+    <meta property="og:description" content="Showcase of professional certifications and leadership activities demonstrating continuous learning and development in digital skills.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Professional Certifications & Leadership Activities">
+    <meta name="twitter:description" content="Showcase of professional certifications and leadership activities demonstrating continuous learning and development in digital skills.">
+    <link rel="canonical" href="https://yourportfolio.com/certifications-activities">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --navy: #0a192f;
+            --navy-light: #112240;
+            --navy-accent: #172a45;
+            --gold: #e6b31e;
+            --gold-light: #f1c75b;
+            --gold-dark: #c99a17;
+            --teal: #64ffda;
+            --teal-dark: #4ad8b9;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --lightest-slate: #ccd6f6;
+            --white: #ffffff;
+            --gray-light: #f5f5f7;
+            --gray-dark: #333;
+            --gray-medium: #555;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--white);
+            color: var(--gray-dark);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* A4 size approximation */
+        .a4-container {
+            max-width: 794px; /* A4 width in pixels at 96 DPI */
+            min-height: 1123px; /* A4 height in pixels at 96 DPI */
+            margin: 0 auto;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            background-color: var(--white);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .a4-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 100%);
+        }
+        
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            height: 3px;
+            width: 0;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            transition: width 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .section-heading.animate::after {
+            width: 100%;
+        }
+        
+        .certificate-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            background: var(--white);
+            border: 1px solid rgba(230, 179, 30, 0.1);
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .certificate-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: rgba(230, 179, 30, 0.3);
+        }
+        
+        .certificate-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: var(--gray-light);
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .certificate-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(230, 179, 30, 0.15);
+        }
+        
+        .certificate-image svg {
+            opacity: 0.7;
+            transition: all 0.4s ease;
+        }
+        
+        .certificate-card:hover .certificate-image svg {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .activity-item {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            padding: 1.25rem;
+            border-radius: 12px;
+            background-color: rgba(245, 245, 247, 0.5);
+            margin-bottom: 1.25rem;
+            border-left: 4px solid var(--gold-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .activity-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(230, 179, 30, 0.05) 0%, transparent 100%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .activity-item:hover::before {
+            opacity: 1;
+        }
+        
+        .activity-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .activity-item:hover {
+            background-color: rgba(245, 245, 247, 0.8);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+        }
+        
+        .bullet-icon {
+            color: var(--gold);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(230, 179, 30, 0.1);
+            margin-right: 16px;
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .bullet-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: rgba(230, 179, 30, 0.2);
+            z-index: -1;
+            transform: scale(0);
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .activity-item:hover .bullet-icon::after {
+            transform: scale(1.3);
+        }
+        
+        .activity-item:hover .bullet-icon {
+            transform: scale(1.1);
+            background-color: rgba(230, 179, 30, 0.2);
+            box-shadow: 0 0 15px rgba(230, 179, 30, 0.3);
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gray-light), transparent);
+            margin: 2.5rem 0;
+            position: relative;
+        }
+        
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 100%);
+            transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .divider.animate::after {
+            width: 70%;
+        }
+        
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+        
+        .certificate-date {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background-color: rgba(230, 179, 30, 0.1);
+            color: var(--gray-dark);
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certificate-date::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(230, 179, 30, 0.1) 0%, rgba(100, 255, 218, 0.1) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .certificate-card:hover .certificate-date::before {
+            opacity: 1;
+        }
+        
+        .certificate-card:hover .certificate-date {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(230, 179, 30, 0.15);
+        }
+        
+        .organization {
+            color: var(--navy-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .organization::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .certificate-card:hover .organization::after {
+            width: 100%;
+        }
+        
+        .certificate-card:hover .organization {
+            color: var(--gold-dark);
+        }
+        
+        .floating-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
+        }
+        
+        .dot {
+            position: absolute;
+            background-color: var(--gold);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+        
+        .page-title {
+    color: var(--gold);
+    position: relative;
+    display: inline-block;
+        }
+     
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .page-title.animate::after {
+            width: 100%;
+        }
+        
+        /* Title animations */
+        .title-word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .title-word.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .title-highlight {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .title-highlight::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(230, 179, 30, 0.2);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            z-index: -1;
+        }
+        
+        .title-highlight.animate::before {
+            transform: scaleX(1);
+        }
+        
+        /* Hover indicator for clickable cards */
+        .certificate-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 100%);
+            transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .certificate-card:hover::after {
+            width: 100%;
+        }
+        
+        .certificate-card .view-text {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            color: var(--gold);
+            font-size: 0.8rem;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .certificate-card:hover .view-text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        @media (max-width: 640px) {
+            .a4-container {
+                padding: 1.5rem;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+            }
+            
+            .certificate-image {
+                height: 110px;
+            }
+            
+            .certificate-title {
+                font-size: 1rem;
+                line-height: 1.4;
+                word-break: break-word;
+                hyphens: auto;
+            }
+            
+            .organization {
+                font-size: 0.9rem;
+            }
+            
+            .certificate-date {
+                font-size: 0.8rem;
+            }
+            
+            .bullet-icon {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .activity-item {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="a4-container my-8">
+        <div class="floating-dots">
+            <div class="dot" style="width: 10px; height: 10px; left: 10%; animation-duration: 25s;"></div>
+            <div class="dot" style="width: 15px; height: 15px; left: 20%; animation-duration: 18s; animation-delay: 2s;"></div>
+            <div class="dot" style="width: 8px; height: 8px; left: 50%; animation-duration: 20s; animation-delay: 5s;"></div>
+            <div class="dot" style="width: 12px; height: 12px; left: 70%; animation-duration: 22s; animation-delay: 1s;"></div>
+            <div class="dot" style="width: 6px; height: 6px; left: 85%; animation-duration: 15s; animation-delay: 3s;"></div>
+        </div>
+        
+        <header class="mb-10 relative z-10">
+            <h1 class="page-title text-3xl md:text-4xl font-bold mb-6">
+                <span class="title-word" data-delay="100">Certifications</span>
+                <span class="title-word" data-delay="200">&</span>
+                <span class="title-word title-highlight" data-delay="300">Extra-Curricular</span>
+                <span class="title-word" data-delay="400">Activities</span>
+            </h1>
+            <p class="text-gray-600 max-w-2xl">
+                A collection of professional certifications and leadership activities demonstrating continuous learning and development in digital skills and management.
+            </p>
+        </header>
+
+        <section class="mb-12 relative z-10">
+            <h2 class="section-heading text-2xl font-semibold text-navy mb-6">Certifications</h2>
+            
+            <div class="space-y-6">
+                <!-- Certificate 1 - Excel -->
+                <a href="#certificate-excel-basics" class="block certificate-card" data-delay="100" aria-label="View Getting Started with Microsoft Excel Certificate">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="certificate-image md:w-1/3 shimmer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="3" y1="15" x2="21" y2="15"></line>
+                                <line x1="9" y1="3" x2="9" y2="21"></line>
+                                <line x1="15" y1="3" x2="15" y2="21"></line>
+                            </svg>
+                        </div>
+                        <div class="p-4 md:w-2/3">
+                            <h3 class="certificate-title text-lg font-medium mb-1">Getting Started with Microsoft Excel</h3>
+                            <p class="organization mb-2">Coursera</p>
+                            <p class="certificate-date">2025</p>
+                            <span class="view-text">View Certificate <i class="fas fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Certificate 2 - Excel Formulas -->
+                <a href="#certificate-excel-formulas" class="block certificate-card" data-delay="200" aria-label="View Excel Formulas and Functions Certificate">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="certificate-image md:w-1/3 shimmer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <path d="M7 8h10"></path>
+                                <path d="M7 12h10"></path>
+                                <path d="M7 16h10"></path>
+                                <path d="M17 8l-3 3 3 3"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4 md:w-2/3">
+                            <h3 class="certificate-title text-lg font-medium mb-1">Using Basic Formulas and Functions in Microsoft Excel</h3>
+                            <p class="organization mb-2">Coursera</p>
+                            <p class="certificate-date">2025</p>
+                            <span class="view-text">View Certificate <i class="fas fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Certificate 3 - Data Analysis -->
+                <a href="#certificate-data-analysis" class="block certificate-card" data-delay="300" aria-label="View Data Analysis with Excel Certificate">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="certificate-image md:w-1/3 shimmer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600">
+                                <path d="M3 3v18h18"></path>
+                                <path d="M18 17V9"></path>
+                                <path d="M13 17V5"></path>
+                                <path d="M8 17v-3"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4 md:w-2/3">
+                            <h3 class="certificate-title text-lg font-medium mb-1">Introduction to Data Analysis using Microsoft Excel</h3>
+                            <p class="organization mb-2">Coursera</p>
+                            <p class="certificate-date">2025</p>
+                            <span class="view-text">View Certificate <i class="fas fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Certificate 4 - SEO -->
+                <a href="#certificate-seo" class="block certificate-card" data-delay="400" aria-label="View SEO with Squarespace Certificate">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="certificate-image md:w-1/3 shimmer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                <path d="M11 8v6"></path>
+                                <path d="M8 11h6"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4 md:w-2/3">
+                            <h3 class="certificate-title text-lg font-medium mb-1">Search Engine Optimization (SEO) with Squarespace</h3>
+                            <p class="organization mb-2">Coursera</p>
+                            <p class="certificate-date">2025</p>
+                            <span class="view-text">View Certificate <i class="fas fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Certificate 5 - Google Ads -->
+                <a href="#certificate-google-ads" class="block certificate-card" data-delay="500" aria-label="View Google Ads Certificate">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="certificate-image md:w-1/3 shimmer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-500">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5"></path>
+                                <path d="M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4 md:w-2/3">
+                            <h3 class="certificate-title text-lg font-medium mb-1">Google Ads for Beginners</h3>
+                            <p class="organization mb-2">Coursera</p>
+                            <p class="certificate-date">2025</p>
+                            <span class="view-text">View Certificate <i class="fas fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Certificate 6 - HubSpot -->
+                <a href="#certificate-hubspot" class="block certificate-card" data-delay="600" aria-label="View HubSpot CRM Certificate">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="certificate-image md:w-1/3 shimmer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-500">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="p-4 md:w-2/3">
+                            <h3 class="certificate-title text-lg font-medium mb-1">Introduction to CRM with HubSpot</h3>
+                            <p class="organization mb-2">Coursera</p>
+                            <p class="certificate-date">2025</p>
+                            <span class="view-text">View Certificate <i class="fas fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Certificate 7 - Off Page SEO Internship -->
+                <a href="#certificate-seo-internship" class="block certificate-card" data-delay="700" aria-label="View SEO Internship Certificate">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="certificate-image md:w-1/3 shimmer" style="border: 2px solid var(--gold-light);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <div class="p-4 md:w-2/3">
+                            <h3 class="certificate-title text-lg font-medium mb-1">Off Page SEO Internship</h3>
+                            <p class="organization mb-2">Mr n Mrs Pet</p>
+                            <p class="certificate-date">2025</p>
+                            <span class="view-text">View Certificate <i class="fas fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+        
+        <div class="divider"></div>
+        
+        <section class="mt-12 relative z-10">
+            <h2 class="section-heading text-2xl font-semibold mb-6">Extra-Curricular Activities</h2>
+            
+            <div class="mt-6">
+                <!-- Activity 1 - Pixels Club -->
+                <div class="activity-item" data-delay="100">
+                    <div class="flex items-start">
+                        <div class="bullet-icon">
+                            <i class="fas fa-camera text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-medium mb-1">Club Coordinator</h3>
+                            <p class="text-gray-600 mb-2">Pixels Club, ICFAI University | 2025 - Present</p>
+                            <p class="text-gray-700">
+                                Coordinating club activities and events focused on photography, digital media, and creative design. Organizing workshops, competitions, and collaborative projects to enhance members' skills and promote visual storytelling across campus.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Activity 2 - Head Boy -->
+                <div class="activity-item" data-delay="200">
+                    <div class="flex items-start">
+                        <div class="bullet-icon">
+                            <i class="fas fa-user-tie text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-medium mb-1">Student Council President (Head Boy)</h3>
+                            <p class="text-gray-600 mb-2">Gyan Vihar School</p>
+                            <p class="text-gray-700">
+                                Led the student council in organizing school events, representing student interests to administration, and maintaining discipline. Coordinated with faculty and students to implement initiatives that enhanced the school environment and student experience.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Structured data for SEO -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "Course",
+                        "name": "Getting Started with Microsoft Excel",
+                        "description": "Foundational Excel skills certification",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Coursera"
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@type": "Course",
+                        "name": "Using Basic Formulas and Functions in Microsoft Excel",
+                        "description": "Excel formulas and functions certification",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Coursera"
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                        "@type": "Course",
+                        "name": "Introduction to Data Analysis using Microsoft Excel",
+                        "description": "Data analysis with Excel certification",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Coursera"
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "item": {
+                        "@type": "Course",
+                        "name": "Search Engine Optimization (SEO) with Squarespace",
+                        "description": "SEO optimization certification",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Coursera"
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "item": {
+                        "@type": "Course",
+                        "name": "Google Ads for Beginners",
+                        "description": "Google Ads certification",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Coursera"
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 6,
+                    "item": {
+                        "@type": "Course",
+                        "name": "Introduction to CRM with HubSpot",
+                        "description": "HubSpot CRM certification",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Coursera"
+                        }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 7,
+                    "item": {
+                        "@type": "Course",
+                        "name": "Off Page SEO Internship",
+                        "description": "SEO internship certification",
+                        "provider": {
+                            "@type": "Organization",
+                            "name": "Mr n Mrs Pet"
+                        }
+                    }
+                }
+            ]
+        }
+        </script>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create more floating dots dynamically
+            const floatingDots = document.querySelector('.floating-dots');
+            for (let i = 0; i < 15; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                const size = Math.random() * 8 + 3;
+                dot.style.width = `${size}px`;
+                dot.style.height = `${size}px`;
+                dot.style.left = `${Math.random() * 100}%`;
+                dot.style.top = `${Math.random() * 100}%`;
+                dot.style.animationDuration = `${Math.random() * 25 + 15}s`;
+                dot.style.animationDelay = `${Math.random() * 5}s`;
+                floatingDots.appendChild(dot);
+            }
+            
+            // Animate title words with staggered delay
+            const titleWords = document.querySelectorAll('.title-word');
+            titleWords.forEach(word => {
+                const delay = parseInt(word.getAttribute('data-delay')) || 0;
+                setTimeout(() => {
+                    word.classList.add('animate');
+                }, delay);
+            });
+            
+            // Animate title highlight
+            setTimeout(() => {
+                document.querySelector('.title-highlight').classList.add('animate');
+            }, 800);
+            
+            // Animate section headings
+            const sectionHeadings = document.querySelectorAll('.section-heading');
+            setTimeout(() => {
+                sectionHeadings.forEach(heading => {
+                    heading.classList.add('animate');
+                });
+            }, 600);
+            
+            // Animate divider
+            const divider = document.querySelector('.divider');
+            
+            // Animate certificates and activities with staggered delay
+            const certificateCards = document.querySelectorAll('.certificate-card');
+            const activityItems = document.querySelectorAll('.activity-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = parseInt(entry.target.getAttribute('data-delay')) || 0;
+                        
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, delay);
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            
+            certificateCards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            activityItems.forEach(item => {
+                observer.observe(item);
+            });
+            
+            observer.observe(divider);
+            
+            // Add hover effects for certificate cards
+            certificateCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.1)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    if (this.classList.contains('animate')) {
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+                    } else {
+                        this.style.transform = 'translateY(20px)';
+                        this.style.boxShadow = 'none';
+                    }
+                });
+            });
+            
+            // Add hover effects for activity items
+            activityItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.08)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    if (this.classList.contains('animate')) {
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = 'none';
+                    } else {
+                        this.style.transform = 'translateY(15px)';
+                        this.style.boxShadow = 'none';
+                    }
+                });
+            });
+            
+            // Handle certificate card clicks
+            document.querySelectorAll('.certificate-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    // In a real implementation, this would navigate to the certificate
+                    console.log(`Viewing certificate: ${href}`);
+                    // You could add a modal to show the certificate here
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9653da39b2cce14a',t:'MTc1MzUzMjQ0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
