@@ -1437,14 +1437,14 @@
             
             // Handle certificate card clicks
             document.querySelectorAll('.certificate-card').forEach(card => {
-                card.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const href = this.getAttribute('href');
-                    // In a real implementation, this would navigate to the certificate
-                    console.log(`Viewing certificate: ${href}`);
-                    // You could add a modal to show the certificate here
-                });
-            });
+            card.addEventListener('click', function(e) {
+            const href = this.getAttribute('href') || '';
+            if (href.startsWith('#')) {
+            e.preventDefault();  // ✅ Only prevent if it's an internal modal link
+            }
+        });
+    });
+
         });
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9653da39b2cce14a',t:'MTc1MzUzMjQ0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
